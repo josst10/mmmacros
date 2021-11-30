@@ -1,0 +1,10 @@
+Sub Main
+' This macro pastes the contents of the clipboard as unformatted text and
+' merges the topics if the content is broken down into multiple topics
+' as a result of the paste opertion in MM.
+
+ActiveDocument.Selection.PasteSpecial(mmPasteSpecialPriorityUnformattedText)
+
+MacroRun (MacroDir & "\MergeTopics.mmbas")
+
+End Sub

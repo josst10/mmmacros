@@ -1,0 +1,25 @@
+Sub Main
+' This macro merges a collection of selected topics into a single topic
+' by appending topics end-to-end (separated by a space).
+' The topics are appended in order from the first topic selected,
+' to the last topic selected.
+' The topics used in the merge operation are deleted.
+
+Dim t As Topic
+Dim strTopic As String
+Dim i As Integer
+
+Set t = ActiveDocument.Selection.Item(1)
+
+strTopic = t.Text
+
+Do While (ActiveDocument.Selection.Count > 1)
+Set t = ActiveDocument.Selection.Item(2)
+strTopic = strTopic & " " & t.Text
+t.Delete
+Loop
+
+Set t = ActiveDocument.Selection.Item(1)
+
+t.Text = strTopic
+End Sub

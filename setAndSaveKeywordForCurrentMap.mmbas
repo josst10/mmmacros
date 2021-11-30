@@ -1,0 +1,13 @@
+Sub Main
+Begin Dialog UserDialog 400,91 ' %GRID:10,7,1,1
+		Text 10,14,90,14,"Add Keyword",.Text1
+		TextBox 110,7,190,28,.TextBox1
+		OKButton 320,7,70,28
+End Dialog
+
+Dim dlg As UserDialog
+Dialog dlg
+ActiveDocument.Properties.Keywords= dlg.TextBox1
+ActiveDocument.Save
+'ActiveDocument.Close
+End Sub
